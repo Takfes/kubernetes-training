@@ -7,7 +7,7 @@
 
 - my [CheatSheet](docs/CheatSheet.md)
 - my [Documents](docs/)
-- install [minikube](docs/Minikube.md)
+- my [minikube](docs/Minikube.md) guide
 
 ### RESOURCES
 

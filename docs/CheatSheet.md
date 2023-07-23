@@ -1,12 +1,23 @@
 ### The STARTERs
 
 - `kubectl cluster-info`
-- `kubectl run hello-minikube`
+- `kubectl api-resources`
+- `kubectl explain node.spec`
+- `kubectl create deployment pingpong --image alpine -- ping 1.1.1.1`
+
+### The NAMESPACEs
+
+- `kubectl create namespace <name>`
+- `kubectl config current-context`
+- `kubectl config view --minify | grep namespace`
+- `kubectl config set-context --current --namespace=<desired-namespace>`
+- `kubectl config set-context --current --namespace=default`
 
 ### The GETs
 
-- `kubectl get <component>`
-- where **`<component>`** can be any of `nodes`,`pods`,`replicasets`, `replicationcontroller`,`deployments`,`services` or `svc`
+- `kubectl get <ResourceType>`
+- `kubectl get --help`
+- where **`<ResourceType>`** can be any of `nodes`,`pods`,`replicasets`, `replicationcontroller`,`deployments`,`services` or `svc`, `namespaces` or even `all`
 - `kubectl get pods,svc` to get POD and its service in one go
 - `kubectl get pods -o wide`
 - `kubectl get pod <pod-name> -o json`
@@ -16,11 +27,11 @@
 
 ### The DESCRIBEs
 
-- `kubectl describe pods`
-- `kubectl describe nodes`
-- `kubectl describe pod <pod-name>`
-- `kubectl describe replicaset <replicaset-name>`
-- `kubectl describe deployment <replicaset-name>`
+- format 1 : `kubectl describe <ResourceType>`
+- format 2 : `kubectl describe <ResourceType>/<ResourceName>`
+- format 3 : `kubectl describe <ResourceType> <ResourceName>`
+- where **`<ResourceType>`** can be any of `nodes`,`pods`,`replicasets`, `replicationcontroller`,`deployments`,`services` or `svc`, `namespaces` or even `all`
+- and **`<ResourceName>`** is the name specific of Resource that you are after
 
 ### The CREATE
 
@@ -38,12 +49,17 @@ Some major differences:
 - Replicaset : `apiVersion: apps/v1`
 - Replicaset enables selectors through lables for more refiden control over PODS (pods may have been already deployed)
 
+### The LOGs
+
+- `kubectl logs deploy/<deploymentname>`
+- `kubectl logs deploy/<deploymentname> --tail 1 --follow`
+
 ### The SCALING
 
-- `kubectl replace -f rs-definition.yaml`
 - `kubectl scale --replicas=6 -f rs-definition.yaml` which won't update the `rs-definition.yaml`
 - `kubectl scale --replicas=6 replicaset myapp-replicaset` which won't update the `rs-definition.yaml`
 - `kubectl scale replicaset myapp-replicaset --replicas=2`
+- `kubectl replace -f rs-definition.yaml`
 - `kubectl edit replicaset myapp-replicaset` which will create a temporary file in memory. Any changes to this file will take immediate effect upon saving the file.
 
 ### The ROLLOUT/DEPLOYMENTS

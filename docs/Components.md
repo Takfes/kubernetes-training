@@ -1,5 +1,7 @@
 ### K8s COMPONENTS
 
+<img src="https://www.ais.com/wp-content/uploads/2021/10/Master-Node-in-the-Kubernetes.png" alt="alt text" width="750">
+
 1. **API Server**: The API server is the central management point of the Kubernetes control plane. It exposes the Kubernetes API, which allows users and other components to interact with the cluster. All administrative operations are handled through the API server.
 
 2. **etcd**: etcd is a distributed key-value store that serves as the cluster's primary datastore. It stores the configuration data and state of the cluster, including information about pods, services, nodes, and more. etcd ensures consistent and reliable storage for cluster data.
