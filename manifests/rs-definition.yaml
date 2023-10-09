@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myapp-replicaset
+  labels:
+    app: myapp
+    type: frontend 
+spec:
+  replicas: 3
+  selector: 
+    matchLabels:
+      env: prod # ! These two need to match
+  template:
+    metadata:
+      name: nginx-2
+      labels:
+        env: prod # ! These two need to match
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
