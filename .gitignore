@@ -1,0 +1,38 @@
+# Logs
+logs
+*.log
+
+# Directory for storing temporary files
+temp/
+
+# Terraform files
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# Ansible directories
+.ansible/
+.retry
+
+# Kubectl config files
+.kube/
+
+# CloudFormation files
+.aws-sam/
+build/
+
+# Python virtual environment
+.venv/
+venv/
+
+# Environment variable files
+.env
+
+# IDE and editor files
+.idea/
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
